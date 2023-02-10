@@ -87,9 +87,11 @@ public class ReviewServiceImpl implements ReviewService{
          r.setComments(txtFld.getText());
       }
       
-      // 테스트
-      System.out.println(r.getStar());
-      System.out.println(r.getComments());
+      if(ds.review(r)) {
+    	  txtFld.clear();
+    	  //콤보박스 초기화
+//    	  cmbStar.setPromptText("별점");
+      }
       
    }
    

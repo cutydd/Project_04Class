@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatbot.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatbot.Controller">
    <children>
       <Label alignment="CENTER" prefHeight="59.0" prefWidth="377.0" style="-fx-background-color: #9ABAD3;" text="에이콘 식당">
          <font>
@@ -79,7 +79,7 @@
          <children>
             <ComboBox fx:id="cmbStar" prefHeight="26.0" prefWidth="85.0" promptText="별점" />
             <TextField fx:id="reviewContent" alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="165.0" promptText="리뷰를 작성해 주세요" />
-            <Button mnemonicParsing="false" onAction="#reviewWrite" prefHeight="26.0" prefWidth="70.0" text="보내기" />
+            <Button onAction="#reviewWrite" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="보내기" />
          </children>
       </HBox>
       <Label layoutX="27.0" layoutY="73.0" prefHeight="36.0" prefWidth="319.0" text="총 별점 - " />

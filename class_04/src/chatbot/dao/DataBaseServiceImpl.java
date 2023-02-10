@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import chatbot.Reserve;
+import chatbot.Review;
 
 
 public class DataBaseServiceImpl implements DataBaseService{
@@ -21,7 +22,7 @@ public class DataBaseServiceImpl implements DataBaseService{
 		//데이터 연결을 위한 객체 처리
 		String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
 		String user = "system";
-		String pass = "0000";
+		String pass = "oracle";
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -60,7 +61,26 @@ public class DataBaseServiceImpl implements DataBaseService{
 	}
 
 
+	@Override
+	public boolean review(Review re) {
+		// TODO Auto-generated method stub
+		try {
+			String sql = "INSERT INTO review VALUES(?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setDouble(1, re.getStar());
+			pstmt.setString(2, re.getComments());
+			int result = pstmt.executeUpdate();
+			
+			if(result > 0) {
+				System.out.println("리뷰 작성 성공");
+				return true;
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("리뷰 작성 실패");
+		return false;
+	}
 
-	
-	
+
 }
