@@ -15,5 +15,9 @@ public interface CommonService {
 	
 	void userTalk(Parent root) throws IOException;
 
+	void userTalk(Parent root, String str) throws IOException;
+
+	void shopTalk(Parent root, Pane p) throws IOException;
+
 	
 }

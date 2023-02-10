@@ -9,7 +9,9 @@ import chatbot.service.ReserveService;
 import chatbot.service.ReserveServiceImpl;
 import chatbot.service.ReviewService;
 import chatbot.service.ReviewServiceImpl;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.Pane;
 
 public class Controller {
 	private Parent root;
@@ -38,14 +40,21 @@ public class Controller {
 	
 	public void sendMsg() throws IOException {
 		cs.userTalk(root);
+		cs.shopTalk(root, "안녕하세요");
 	}
 
 	public void setReview(Parent reviewroot) {
-		// TODO Auto-generated method stub
 		this.reviewroot = reviewroot;
 	}
 	
 	public void reviewWrite() {
 		rs.reviewWrite(reviewroot);
+	}
+	
+	public void infoMsg() throws IOException {
+		FXMLLoader loader = new FXMLLoader(
+				getClass().getResource("../shopInfo.fxml"));
+		Pane p = loader.load();
+		cs.shopTalk(root, p);
 	}
 }

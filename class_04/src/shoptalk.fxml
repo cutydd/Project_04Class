@@ -6,19 +6,22 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="20.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label fx:id="chat" layoutX="10.0" layoutY="45.0" maxWidth="200.0" wrapText="true" style="-fx-background-color: ffffff; -fx-background-radius: 8;">
-         <padding>
-            <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
-         </padding>
-      </Label>
       <Label layoutX="50.0" layoutY="10.0" text="에이콘 식당">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <Pane fx:id="pchat" layoutX="15.0" layoutY="45.0">
+         <children>
+            <Label fx:id="chat" maxWidth="200.0" style="-fx-background-color: ffffff; -fx-background-radius: 8;" wrapText="true">
+               <padding>
+                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+               </padding>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </Pane>

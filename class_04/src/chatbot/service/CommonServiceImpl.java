@@ -35,12 +35,38 @@ public class CommonServiceImpl implements CommonService{
 	}
 	
 	@Override
+	public void userTalk(Parent root, String str) throws IOException {
+		FXMLLoader loader = new FXMLLoader(
+				getClass().getResource("../../usertalk.fxml"));
+		Pane chat = loader.load();
+		Label l = (Label) chat.lookup("#chat");
+		l.setText(str);
+		
+		putMsg(root, chat);
+	}
+	
+	@Override
 	public void shopTalk(Parent root, String str) throws IOException {
 		FXMLLoader loader = new FXMLLoader(
 				getClass().getResource("../../shoptalk.fxml"));
 		Pane chat = loader.load();
 		Label l = (Label) chat.lookup("#chat");
 		l.setText(str);
+		
+		putMsg(root, chat);
+	}
+	
+	@Override
+	public void shopTalk(Parent root, Pane p) throws IOException {
+		FXMLLoader loader = new FXMLLoader(
+				getClass().getResource("../../shoptalk.fxml"));
+		Pane chat = loader.load();
+		
+		Label l = (Label) chat.lookup("#chat");
+		l.setVisible(false);
+		
+		Pane pchat = (Pane) chat.lookup("#pchat");
+		pchat.getChildren().add(p);
 		
 		putMsg(root, chat);
 	}

@@ -18,7 +18,6 @@ public class Main extends Application{
 		
 		Controller ctrl = loader.getController();
 		ctrl.setRoot(root);
-		//말풍선 추가하는 방법
 
 		primaryStage.setScene(new Scene(root));
 		primaryStage.setTitle("에이콘 식당");
