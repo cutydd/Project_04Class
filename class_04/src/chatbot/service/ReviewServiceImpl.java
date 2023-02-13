@@ -39,28 +39,28 @@ public class ReviewServiceImpl implements ReviewService{
 		cs.shopTalk(root, p);
 		TableView tv = (TableView) p.lookup("#reviewTable");
 		
-		FXMLLoader loader1 = new FXMLLoader(
-				getClass().getResource("../../reviewSend.fxml"));
-		Pane p1 = loader1.load();
-		cs.userTalk(root);
-		cs.shopTalk(root, p);
+//		FXMLLoader loader1 = new FXMLLoader(
+//				getClass().getResource("../../reviewSend.fxml"));
+//		Pane p1 = loader1.load();
+//		cs.userTalk(root);
+//		cs.shopTalk(root, p);
 		
 //		FXMLLoader loader = new FXMLLoader(
 //				getClass().getResource("../../guiReview.fxml"));
-		Parent reviewroot = loader.load();
-
-		Controller ctrl = loader.getController();
-		ctrl.setReview(reviewroot);
-
-		Stage stage = new Stage();
-		stage.setScene(new Scene(tv));
-
-		ComboBox<Double> cmbStar = (ComboBox<Double>) reviewroot.lookup("#cmbStar");
-		cmbStar.getItems().addAll(0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0);
-
-		stage.setTitle("리뷰");
-		stage.show();
-
+//		Parent reviewroot = loader.load();
+//
+//		Controller ctrl = loader.getController();
+//		ctrl.setReview(reviewroot);
+//
+//		Stage stage = new Stage();
+//		stage.setScene(new Scene(tv));
+//
+//		ComboBox<Double> cmbStar = (ComboBox<Double>) reviewroot.lookup("#cmbStar");
+//		cmbStar.getItems().addAll(0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0);
+//
+//		stage.setTitle("리뷰");
+//		stage.show();
+//
 	}
 
 	@Override
