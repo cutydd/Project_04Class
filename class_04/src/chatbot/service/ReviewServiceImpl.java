@@ -28,47 +28,39 @@ public class ReviewServiceImpl implements ReviewService{
 	@Override
 	public void reviewProc(Parent root) throws IOException {
 		// TODO Auto-generated method stub
-//		Stage s = (Stage) root.getScene().getWindow();
-//
-//		s.close();
 
 		FXMLLoader loader = new FXMLLoader(
 				getClass().getResource("../../reviewTable.fxml"));
 		Pane p = loader.load();
 
 		cs.shopTalk(root, p);
-		TableView tv = (TableView) p.lookup("#reviewTable");
-		
+		reviewSend(root);
 //		FXMLLoader loader1 = new FXMLLoader(
 //				getClass().getResource("../../reviewSend.fxml"));
-//		Pane p1 = loader1.load();
-//		cs.userTalk(root);
-//		cs.shopTalk(root, p);
-		
-//		FXMLLoader loader = new FXMLLoader(
-//				getClass().getResource("../../guiReview.fxml"));
-//		Parent reviewroot = loader.load();
-//
-//		Controller ctrl = loader.getController();
-//		ctrl.setReview(reviewroot);
-//
-//		Stage stage = new Stage();
-//		stage.setScene(new Scene(tv));
-//
-//		ComboBox<Double> cmbStar = (ComboBox<Double>) reviewroot.lookup("#cmbStar");
+//		Pane p1 = loader.load();
+//		cs.shopTalk(root,p1);
+//		
+//		ComboBox<Double> cmbStar = (ComboBox<Double>) root.lookup("#cmbStar");
 //		cmbStar.getItems().addAll(0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0);
-//
-//		stage.setTitle("리뷰");
-//		stage.show();
-//
+
+	}
+	
+	@Override
+	public void reviewSend(Parent root) throws IOException {
+//		// TODO Auto-generated method stub
+//		FXMLLoader loader = new FXMLLoader(
+//				getClass().getResource("../../reviewSend.fxml"));
+//		Pane p = loader.load();
+//		
+//		cs.userTalk(root,p);
 	}
 
 	@Override
-	public void reviewWrite(Parent reviewroot) {
+	public void reviewWrite(Parent root) {
 		// TODO Auto-generated method stub
 		Review r = new Review();
 
-		ComboBox<Double> cmbStar = (ComboBox<Double>) reviewroot.lookup("#cmbStar");
+		ComboBox<Double> cmbStar = (ComboBox<Double>) root.lookup("#cmbStar");
 		if(cmbStar.getValue() == null) {
 			cs.errorMsg("별점", "별점 선택", "별점이 선택되지 않았습니다.");
 			cmbStar.requestFocus();
@@ -95,7 +87,7 @@ public class ReviewServiceImpl implements ReviewService{
 			r.setStar(5.0);
 		}
 
-		TextField txtFld = (TextField) reviewroot.lookup("#reviewContent");
+		TextField txtFld = (TextField) root.lookup("#reviewContent");
 
 		if(txtFld.getText().isEmpty()) {
 			cs.errorMsg("리뷰", "리뷰 작성", "리뷰 내용 없음");
@@ -110,7 +102,5 @@ public class ReviewServiceImpl implements ReviewService{
 		}
 
 	}
-
-
 
 }

@@ -5,11 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import chatbot.Reserve;
 import chatbot.Review;
-import chatbot.service.CommonService;
-import chatbot.service.CommonServiceImpl;
 
 
 public class DataBaseServiceImpl implements DataBaseService{
@@ -82,6 +82,30 @@ public class DataBaseServiceImpl implements DataBaseService{
 		}
 		System.out.println("리뷰 작성 실패");
 		return false;
+	}
+
+
+	@Override
+	public List<Review> reviewTable() {
+		// TODO Auto-generated method stub
+		List<Review> reviewList = new ArrayList<Review>();
+		try {
+			String sql = "SELECT star,comments FROM review";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Review r = new Review();
+				
+				r.setStar(rs.getDouble("star"));
+				r.setComments(rs.getString("comments"));
+				reviewList.add(r);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return reviewList;
 	}
 
 

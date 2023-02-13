@@ -6,13 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.control.Alert.AlertType;
 
 public class CommonServiceImpl implements CommonService{
 	
@@ -44,6 +44,20 @@ public class CommonServiceImpl implements CommonService{
 		Pane chat = loader.load();
 		Label l = (Label) chat.lookup("#chat");
 		l.setText(str);
+		
+		putMsg(root, chat);
+	}
+	
+	@Override
+	public void userTalk(Parent root, Pane p) throws IOException {
+		// TODO Auto-generated method stub
+		FXMLLoader loader = new FXMLLoader(
+				getClass().getResource("../../reviewtalk.fxml"));
+		Pane chat = loader.load();
+		Label l = (Label) chat.lookup("#chat");
+		l.setVisible(false);
+		Pane pchat = (Pane) chat.lookup("#pchat");		
+		pchat.getChildren().add(p);
 		
 		putMsg(root, chat);
 	}

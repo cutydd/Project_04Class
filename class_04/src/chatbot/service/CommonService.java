@@ -18,4 +18,6 @@ public interface CommonService {
 	void shopTalk(Parent root, Pane p) throws IOException;
 	
 	void menu(Parent root) throws IOException;
+
+	void userTalk(Parent root, Pane p1) throws IOException;
 }
