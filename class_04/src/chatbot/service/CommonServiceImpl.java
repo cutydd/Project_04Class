@@ -2,14 +2,17 @@ package chatbot.service;
 
 import java.io.IOException;
 
+import chatbot.Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
 
 public class CommonServiceImpl implements CommonService{
@@ -81,4 +84,20 @@ public class CommonServiceImpl implements CommonService{
 
 		alert.show();
 	}
+
+	@Override
+	public void menu(Parent root) throws IOException {
+		// TODO Auto-generated method stub
+	      FXMLLoader loader = new FXMLLoader(
+	              getClass().getResource("../../menulist.fxml"));
+	        Parent menuList = loader.load();
+
+	        
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(menuList));
+	        stage.setTitle("메뉴판");
+	        stage.show();
+	}
+	
+
 }

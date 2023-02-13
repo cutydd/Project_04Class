@@ -57,4 +57,7 @@ public class Controller {
 		Pane p = loader.load();
 		cs.shopTalk(root, p);
 	}
+	public void menuProc() throws IOException {
+		cs.menu(root);
+	}
 }
