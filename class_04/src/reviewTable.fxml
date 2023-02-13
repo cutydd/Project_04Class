@@ -3,17 +3,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="346.0" prefWidth="334.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefHeight="328.0" prefWidth="334.0" style="-fx-background-color: ffffff; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label prefHeight="36.0" prefWidth="319.0" text="총 별점 - " />
-      <TableView fx:id="reviewTable" prefHeight="309.0" prefWidth="335.0">
+      <Label layoutX="8.0" prefHeight="36.0" prefWidth="319.0" text="총 별점 - " />
+      <TableView fx:id="reviewTable" layoutX="10.0" layoutY="36.0" prefHeight="278.0" prefWidth="309.0">
          <columns>
             <TableColumn prefWidth="52.0" text="별점 " />
             <TableColumn prefWidth="282.0" text="리뷰 " />
          </columns>
       </TableView>
    </children>
-</VBox>
+</Pane>
