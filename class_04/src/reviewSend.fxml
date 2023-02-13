@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox alignment="CENTER" prefHeight="36.0" prefWidth="351.0" spacing="5.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ComboBox fx:id="cmbStar" prefHeight="26.0" prefWidth="85.0" promptText="별점" />
+      <TextField fx:id="reviewContent" alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="165.0" promptText="리뷰를 작성해 주세요" />
+      <Button mnemonicParsing="false" onAction="#reviewWrite" prefHeight="26.0" prefWidth="70.0" text="보내기" />
+   </children>
+</HBox>

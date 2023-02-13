@@ -97,6 +97,5 @@ public class CommonServiceImpl implements CommonService{
 	        stage.setTitle("메뉴판");
 	        stage.show();
 	}
-	
 
 }
