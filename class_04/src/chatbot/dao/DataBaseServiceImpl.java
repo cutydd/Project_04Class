@@ -22,7 +22,7 @@ public class DataBaseServiceImpl implements DataBaseService{
 		//데이터 연결을 위한 객체 처리
 		String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
 		String user = "system";
-		String pass = "0000";
+		String pass = "oracle";
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
