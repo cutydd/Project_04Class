@@ -19,7 +19,7 @@
             <Insets />
          </VBox.margin>
       </Label>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="370.0" style="-fx-background-color: #9ABAD3;" text="02-2231-6412" textAlignment="CENTER"  wrapText="true" />
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="370.0" style="-fx-background-color: #9ABAD3;" text="02-2231-6412" textAlignment="CENTER" wrapText="true" />
       <ScrollPane fx:id="scroll" hbarPolicy="NEVER" maxHeight="400.0" maxWidth="350.0" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" style=" -fx-background-color: transparent;">
          <opaqueInsets>
             <Insets />
@@ -30,7 +30,7 @@
          <content>
             <VBox fx:id="board" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="395.0" minWidth="-Infinity" prefWidth="350.0" spacing="5.0" style="-fx-background-color: #9ABAD3;;">
                <padding>
-                  <Insets right="15.0" />
+                  <Insets bottom="40.0" right="15.0" />
                </padding></VBox>
          </content>
       </ScrollPane>
@@ -41,7 +41,7 @@
                   <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
                </padding>
             </TextField>
-            <Button onAction="#sendMsg" mnemonicParsing="false" text="전송">
+            <Button fx:id= "send" mnemonicParsing="false" onAction="#sendMsg" text="전송">
                <padding>
                   <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                </padding>
@@ -59,7 +59,7 @@
       </HBox>
       <HBox prefHeight="51.0" prefWidth="377.0" spacing="20.0">
          <children>
-            <Button onAction="#reserveProc" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-radius: 30; -fx-background-color: ffffff;" text="예약문의">
+            <Button mnemonicParsing="false" onAction="#reserveProc" prefHeight="25.0" prefWidth="72.0" style="-fx-background-radius: 30; -fx-background-color: ffffff;" text="예약문의">
                <padding>
                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                </padding>
@@ -67,7 +67,7 @@
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </opaqueInsets>
             </Button>
-            <Button onAction="#reviewProc" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-radius: 30; -fx-background-color: ffffff;" text="리뷰">
+            <Button mnemonicParsing="false" onAction="#reviewProc" prefHeight="25.0" prefWidth="72.0" style="-fx-background-radius: 30; -fx-background-color: ffffff;" text="리뷰">
                <padding>
                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                </padding>
@@ -75,7 +75,7 @@
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </opaqueInsets>
             </Button>
-            <Button onAction="#infoMsg"  mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-radius: 30; -fx-background-color: ffffff;" text="정보">
+            <Button mnemonicParsing="false" onAction="#infoMsg" prefHeight="25.0" prefWidth="72.0" style="-fx-background-radius: 30; -fx-background-color: ffffff;" text="정보">
                <padding>
                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                </padding>
@@ -83,7 +83,7 @@
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </opaqueInsets>
             </Button>
-            <Button onAction="#menuProc" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-radius: 30; -fx-background-color: ffffff;" text="메뉴판">
+            <Button mnemonicParsing="false" onAction="#menuProc" prefHeight="25.0" prefWidth="72.0" style="-fx-background-radius: 30; -fx-background-color: ffffff;" text="메뉴판">
                <padding>
                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                </padding>

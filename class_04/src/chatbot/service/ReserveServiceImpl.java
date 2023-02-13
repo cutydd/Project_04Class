@@ -2,18 +2,20 @@ package chatbot.service;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Scanner;
 
 import chatbot.Reserve;
 import chatbot.dao.DataBaseService;
 import chatbot.dao.DataBaseServiceImpl;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 
 public class ReserveServiceImpl implements ReserveService{
-	static Scanner sc = new Scanner(System.in);
-	
 	DataBaseService ds;
 	CommonService cs;
+	int step = 1;
 	
 	public ReserveServiceImpl() {
 		ds = new DataBaseServiceImpl();
@@ -22,38 +24,68 @@ public class ReserveServiceImpl implements ReserveService{
 	
 	
 	@Override
-	public void reserve(Parent root) throws SQLException, IOException {
-		Reserve r = new Reserve();
+	public void reserve(Parent root) throws Exception {
 		cs.shopTalk(root, "+ + + 예약 + + + ");
-		System.out.println("+ + + 예약 + + + ");
-//		r.setName(strInput("이름"));
-//		r.setPhone(strInput("전화번호"));
-//		r.setMem(intInput("인원수"));
+		// 현재 예약 팀 : n팀 
+		// 예약하기 버튼
 		
-//		ds.reserve(r);
-		
+		// 이 아래는 버튼 누르면 실행
+		insertReserve(root);
 		
 	}
 	
-
-	public int intInput(String str) {
-		int i = -1;
-		while(i == -1) {
-			try {
-				System.out.print(str+" 입력: ");
-				i = sc.nextInt();
-			} catch(Exception e) {
-				System.out.println("정수를 입력해주세요.\n");
-				sc = new Scanner(System.in);
+	public void insertReserve(Parent root) throws Exception{
+		FXMLLoader loader = new FXMLLoader(
+				getClass().getResource("../../reserve.fxml"));
+		Pane p = loader.load();
+		
+		cs.shopTalk(root, p);
+		
+		Button btn = (Button) p.lookup("#reserve");
+		btn.setOnAction(e -> {
+			TextField txtFld[] = {
+					(TextField) p.lookup("#name"), 
+					(TextField) p.lookup("#mem"), 
+					(TextField) p.lookup("#phone")};
+			
+			//빈칸 검사
+			for (TextField txt : txtFld) {
+				if(txt.getText() == null || txt.getText().equals("")) {
+					try {
+						cs.shopTalk(root, "빈칸이 들어가면 안됩니다.");
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					btn.setDisable(true);
+					return;
+				}
 			}
-		}
-		return i;
+			
+			Reserve r = new Reserve();
+			r.setName(txtFld[0].getText());
+			r.setMem(Integer.parseInt(txtFld[1].getText()));
+			r.setPhone(txtFld[2].getText());
+			
+			
+			//DB에 넣기
+			try {
+				if(ds.reserve(r)) {
+					cs.shopTalk(root, r.getName()+"님, "+r.getMem()+"명 예약되셨습니다.");
+				} else {
+					cs.shopTalk(root, "예약 실패");
+				}
+			} catch (SQLException e1) {
+				System.out.println("DB오류");
+				//e1.printStackTrace();
+			} catch (IOException e1) {
+				System.out.println("fxml 오류");
+				//e1.printStackTrace();
+			}
+			
+			btn.setDisable(true);
+		});
+		
+		
 	}
-	
-	public String strInput(String str) {
-		System.out.print(str+" 입력: ");
-		return sc.next();
-	}
-
-
 }

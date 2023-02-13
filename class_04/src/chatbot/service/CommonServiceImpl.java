@@ -23,16 +23,18 @@ public class CommonServiceImpl implements CommonService{
 	}
 	
 	@Override
-	public void userTalk(Parent root) throws IOException {
+	public String userTalk(Parent root) throws IOException {
 		FXMLLoader loader = new FXMLLoader(
 				getClass().getResource("../../usertalk.fxml"));
 		Pane chat = loader.load();
 		Label l = (Label) chat.lookup("#chat");
 		TextField text = (TextField) root.lookup("#text");
-		l.setText(text.getText());
+		String str = text.getText();
+		l.setText(str);
 		
 		putMsg(root, chat);
 		text.setText(null);
+		return str;
 	}
 	
 	@Override

@@ -33,7 +33,7 @@ public class Controller {
 		this.root=root;
 	}
 	
-	public void reserveProc() throws SQLException, IOException {
+	public void reserveProc() throws Exception {
 		rvs.reserve(root);
 	}
 	

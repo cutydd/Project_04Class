@@ -8,6 +8,8 @@ import java.sql.SQLException;
 
 import chatbot.Reserve;
 import chatbot.Review;
+import chatbot.service.CommonService;
+import chatbot.service.CommonServiceImpl;
 
 
 public class DataBaseServiceImpl implements DataBaseService{
