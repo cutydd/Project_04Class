@@ -2,7 +2,6 @@ package chatbot.service;
 
 import java.io.IOException;
 
-import chatbot.Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,8 +16,8 @@ import javafx.scene.control.Alert.AlertType;
 
 public class CommonServiceImpl implements CommonService{
 	
-	@Override
 	public void putMsg(Parent root, Pane msg) {
+		System.out.println("putMsg : " + root);
 		ScrollPane sp = (ScrollPane) root.lookup("#scroll");
 		VBox v = (VBox) sp.getContent().lookup("#board");
 		v.getChildren().add(msg);
@@ -44,6 +43,7 @@ public class CommonServiceImpl implements CommonService{
 		Pane chat = loader.load();
 		Label l = (Label) chat.lookup("#chat");
 		l.setText(str);
+		System.out.println("userTalk : " + root);
 		
 		putMsg(root, chat);
 	}
@@ -70,8 +70,9 @@ public class CommonServiceImpl implements CommonService{
 		
 		Pane pchat = (Pane) chat.lookup("#pchat");
 		pchat.getChildren().add(p);
+		System.out.println("shopTalk : " + root);
 		
-		putMsg(root, chat);
+		putMsg(root,  chat);
 	}
 	
 	@Override

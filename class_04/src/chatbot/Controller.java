@@ -14,7 +14,10 @@ import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
 
 public class Controller {
-	private Parent root;
+	// root 를 공용으로 써야 할것 같아요 
+	// 이유는 shopInfo.fxml 에서 controller 를 지정해서 다른 객체가 생성되서
+	// root 가 없어져요
+	private static Parent root;
 	private ReserveService rvs;
 	private ReviewService rs;
 	private CommonService cs;
@@ -57,7 +60,27 @@ public class Controller {
 		Pane p = loader.load();
 		cs.shopTalk(root, p);
 	}
+	
 	public void menuProc() throws IOException {
+		System.out.println("menuProc : " + root);
 		cs.menu(root);
+	}
+	
+	public void infoAddr() throws IOException {
+		String str ="서울특별시 마포구 양화로 122 3층, 4층";
+		cs.userTalk(root, "주소");
+		cs.shopTalk(root, str);
+	}
+	
+	public void infoPark() throws IOException {
+		String str ="주차장 정보"; //무엇을 넣어야할지..
+		cs.userTalk(root, "주차장");
+		cs.shopTalk(root, str);
+	}
+	
+	public void infoCall() throws IOException {
+		String str ="02-2231-6412";
+		cs.userTalk(root, "전화번호");
+		cs.shopTalk(root, str);
 	}
 }
