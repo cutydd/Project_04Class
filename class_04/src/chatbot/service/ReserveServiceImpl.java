@@ -1,5 +1,6 @@
 package chatbot.service;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -12,21 +13,24 @@ public class ReserveServiceImpl implements ReserveService{
 	static Scanner sc = new Scanner(System.in);
 	
 	DataBaseService ds;
+	CommonService cs;
 	
 	public ReserveServiceImpl() {
 		ds = new DataBaseServiceImpl();
+		cs = new CommonServiceImpl();
 	}
 	
 	
 	@Override
-	public void reserve(Parent root) throws SQLException {
+	public void reserve(Parent root) throws SQLException, IOException {
 		Reserve r = new Reserve();
+		cs.shopTalk(root, "+ + + 예약 + + + ");
 		System.out.println("+ + + 예약 + + + ");
-		r.setName(strInput("이름"));
-		r.setPhone(strInput("전화번호"));
-		r.setMem(intInput("인원수"));
+//		r.setName(strInput("이름"));
+//		r.setPhone(strInput("전화번호"));
+//		r.setMem(intInput("인원수"));
 		
-		ds.reserve(r);
+//		ds.reserve(r);
 		
 		
 	}

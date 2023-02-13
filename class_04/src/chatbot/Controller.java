@@ -33,7 +33,7 @@ public class Controller {
 		this.root=root;
 	}
 	
-	public void reserveProc() throws SQLException {
+	public void reserveProc() throws SQLException, IOException {
 		rvs.reserve(root);
 	}
 	
@@ -62,7 +62,6 @@ public class Controller {
 	}
 	
 	public void menuProc() throws IOException {
-		System.out.println("menuProc : " + root);
 		cs.menu(root);
 	}
 	
@@ -73,7 +72,7 @@ public class Controller {
 	}
 	
 	public void infoPark() throws IOException {
-		String str ="주차장 정보"; //무엇을 넣어야할지..
+		String str ="매장 입구 앞 주차, 매장이용시 2시간 무료주차";
 		cs.userTalk(root, "주차장");
 		cs.shopTalk(root, str);
 	}
