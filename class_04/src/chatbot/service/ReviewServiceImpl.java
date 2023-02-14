@@ -1,35 +1,67 @@
 package chatbot.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import chatbot.Review;
 import chatbot.dao.DataBaseService;
 import chatbot.dao.DataBaseServiceImpl;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 
 public class ReviewServiceImpl implements ReviewService{
 	CommonService cs;
 	DataBaseService ds;
+	@FXML static TableColumn<Review, Double> star;
+	@FXML static TableColumn<Review, String> comments;
 
 	public ReviewServiceImpl() {
 		ds = new DataBaseServiceImpl();
 		cs = new CommonServiceImpl();
 	}
 
-	@Override
-	public void reviewProc(Parent root) throws IOException {
-		// TODO Auto-generated method stub
+	public Pane getReview(Parent root) throws IOException {
 
 		FXMLLoader loader = new FXMLLoader(
 				getClass().getResource("../../reviewTable.fxml"));
 		Pane p = loader.load();
+		
+		List<Review> l = ds.reviewTable();
+		
+		TableView<Review> reviewList = (TableView<Review>) p.lookup("#reviewTable");
+		
+		star = new TableColumn<Review, Double> ("별점");
+		comments = new TableColumn<Review, String> ("리뷰");
+		star.setCellValueFactory(new PropertyValueFactory<Review, Double>("star"));
+		comments.setCellValueFactory(new PropertyValueFactory<Review, String>("comments"));
 
+		reviewList.getColumns().setAll(star,comments);
+
+		ObservableList<Review> list = FXCollections.observableArrayList(l);
+		
+		
+ 		reviewList.setItems(list);
+ 		return p;
+	}
+	
+	@Override
+	public Parent reviewProc(Parent root) throws IOException {
+		// TODO Auto-generated method stub
+
+
+		Pane p = getReview(root);
 		cs.shopTalk(root, p);
 		reviewSend(root);
+		return root;
 		
 //		FXMLLoader loader1 = new FXMLLoader(
 //				getClass().getResource("../../reviewSend.fxml"));

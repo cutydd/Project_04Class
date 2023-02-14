@@ -33,9 +33,7 @@ public class Controller implements Initializable{
 	private ReviewService rs;
 	private CommonService cs;
 	private DataBaseService ds;
-	@FXML static TableView<Review> reviewTable;
-	@FXML static TableColumn<Review, Double> star;
-	@FXML static TableColumn<Review, String> comments;
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -44,20 +42,6 @@ public class Controller implements Initializable{
 		rs = new ReviewServiceImpl();
 		cs = new CommonServiceImpl();
 		ds = new DataBaseServiceImpl();
-	}
-
-	public void getReview() {
-		List<Review> l = ds.reviewTable();
-		TableView<Review> reviewList = (TableView<Review>) root.lookup("#reviewTable");
-
-		star.setCellValueFactory(new PropertyValueFactory<Review, Double>("star"));
-		comments.setCellValueFactory(new PropertyValueFactory<Review, String>("comments"));
-
-		reviewList.getColumns().setAll(star,comments);
-
-		ObservableList<Review> list = FXCollections.observableArrayList(l);
-
-		reviewTable.setItems(list);
 	}
 
 	public void setRoot(Parent root) {
@@ -69,8 +53,9 @@ public class Controller implements Initializable{
 	}
 
 	public void reviewProc() throws IOException {
+		root = rs.reviewProc(root);
 //		getReview();
-		rs.reviewProc(root);
+		
 	}
 
 	public void sendMsg() throws IOException {
