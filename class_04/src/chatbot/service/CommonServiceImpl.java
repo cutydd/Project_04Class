@@ -19,6 +19,7 @@ public class CommonServiceImpl implements CommonService{
 	public void putMsg(Parent root, Pane msg) {
 		ScrollPane sp = (ScrollPane) root.lookup("#scroll");
 		VBox v = (VBox) sp.getContent().lookup("#board");
+		sp.vvalueProperty().bind(v.heightProperty());
 		v.getChildren().add(msg);
 	}
 	

@@ -2,7 +2,6 @@ package chatbot;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import chatbot.dao.DataBaseService;
@@ -13,15 +12,9 @@ import chatbot.service.ReserveService;
 import chatbot.service.ReserveServiceImpl;
 import chatbot.service.ReviewService;
 import chatbot.service.ReviewServiceImpl;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 
 public class Controller implements Initializable{
@@ -33,7 +26,6 @@ public class Controller implements Initializable{
 	private ReviewService rs;
 	private CommonService cs;
 	private DataBaseService ds;
-	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -42,6 +34,7 @@ public class Controller implements Initializable{
 		rs = new ReviewServiceImpl();
 		cs = new CommonServiceImpl();
 		ds = new DataBaseServiceImpl();
+		
 	}
 
 	public void setRoot(Parent root) {
@@ -53,16 +46,12 @@ public class Controller implements Initializable{
 	}
 
 	public void reviewProc() throws IOException {
-		root = rs.reviewProc(root);
+		rs.reviewProc(root);
 	}
 
 	public void sendMsg() throws IOException {
 		cs.userTalk(root);
 		cs.shopTalk(root, "안녕하세요");
-	}
-
-	public void setReview(Parent reviewroot) {
-		root = reviewroot;
 	}
 
 	public void reviewWrite() {

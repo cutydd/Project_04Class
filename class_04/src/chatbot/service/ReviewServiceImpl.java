@@ -24,6 +24,7 @@ public class ReviewServiceImpl implements ReviewService{
 	DataBaseService ds;
 	@FXML static TableColumn<Review, Double> star;
 	@FXML static TableColumn<Review, String> comments;
+	static int cnt=0;
 
 	public ReviewServiceImpl() {
 		ds = new DataBaseServiceImpl();
@@ -58,12 +59,17 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 	
 	@Override
-	public Parent reviewProc(Parent root) throws IOException {
+	public void reviewProc(Parent root) throws IOException {
 		// TODO Auto-generated method stub
 		Pane p = getReview(root);
-		cs.shopTalk(root, p);
-		reviewSend(root);
-		return root;
+		if(cnt<=0) {
+			cs.shopTalk(root, p);
+			reviewSend(root);
+		} else {
+			cs.shopTalk(root, p);
+			cs.shopTalk(root, "이미 리뷰를 작성 하셨습니다.");
+		}
+		
 		
 //		FXMLLoader loader1 = new FXMLLoader(
 //				getClass().getResource("../../reviewSend.fxml"));
@@ -121,6 +127,7 @@ public class ReviewServiceImpl implements ReviewService{
 
 		if(txtFld.getText().isEmpty()) {
 			cs.errorMsg("리뷰", "리뷰 작성", "리뷰 내용 없음");
+			txtFld.focusedProperty();
 			return;
 		} else {
 			r.setComments(txtFld.getText());
@@ -128,6 +135,7 @@ public class ReviewServiceImpl implements ReviewService{
 
 		if(ds.review(r)) {
 			txtFld.clear();
+			cnt++;
 			//콤보박스 초기화
 			//    	  cmbStar.setPromptText("별점");
 		}
