@@ -49,7 +49,7 @@ public class CommonServiceImpl implements CommonService{
 	}
 	
 	@Override
-	public void userTalk(Parent root, Pane p) throws IOException {
+	public void userTalk(Parent root, Pane h) throws IOException {
 		// TODO Auto-generated method stub
 		FXMLLoader loader = new FXMLLoader(
 				getClass().getResource("../../reviewtalk.fxml"));
@@ -57,7 +57,7 @@ public class CommonServiceImpl implements CommonService{
 		Label l = (Label) chat.lookup("#chat");
 		l.setVisible(false);
 		Pane pchat = (Pane) chat.lookup("#pchat");		
-		pchat.getChildren().add(p);
+		pchat.getChildren().add(h);
 		
 		putMsg(root, chat);
 	}

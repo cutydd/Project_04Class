@@ -4,11 +4,23 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" prefHeight="36.0" prefWidth="351.0" spacing="5.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefWidth="320.0" style="-fx-background-color: fef01b; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatbot.Controller">
    <children>
-      <ComboBox fx:id="cmbStar" prefHeight="26.0" prefWidth="85.0" promptText="별점" />
-      <TextField fx:id="reviewContent" alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="165.0" promptText="리뷰를 작성해 주세요" />
-      <Button mnemonicParsing="false" onAction="#reviewWrite" prefHeight="26.0" prefWidth="70.0" text="보내기" />
+      <HBox alignment="CENTER" layoutX="5.0" prefHeight="36.0" prefWidth="310.0" spacing="5.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#reviewWrite" prefHeight="26.0" prefWidth="70.0" text="보내기">
+               <font>
+                  <Font size="11.0" />
+               </font></Button>
+            <TextField fx:id="reviewContent" alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="165.0" promptText="리뷰를 작성해 주세요">
+               <font>
+                  <Font size="11.0" />
+               </font></TextField>
+            <ComboBox fx:id="cmbStar" prefHeight="26.0" prefWidth="90.0" promptText="☆" />
+         </children>
+      </HBox>
    </children>
-</HBox>
+</Pane>

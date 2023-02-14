@@ -2,19 +2,14 @@ package chatbot.service;
 
 import java.io.IOException;
 
-import chatbot.Controller;
 import chatbot.Review;
 import chatbot.dao.DataBaseService;
 import chatbot.dao.DataBaseServiceImpl;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 public class ReviewServiceImpl implements ReviewService{
 	CommonService cs;
@@ -35,24 +30,25 @@ public class ReviewServiceImpl implements ReviewService{
 
 		cs.shopTalk(root, p);
 		reviewSend(root);
+		
 //		FXMLLoader loader1 = new FXMLLoader(
 //				getClass().getResource("../../reviewSend.fxml"));
 //		Pane p1 = loader.load();
-//		cs.shopTalk(root,p1);
+//		cs.userTalk(root,p1);
 //		
-//		ComboBox<Double> cmbStar = (ComboBox<Double>) root.lookup("#cmbStar");
-//		cmbStar.getItems().addAll(0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0);
-
 	}
 	
 	@Override
 	public void reviewSend(Parent root) throws IOException {
-//		// TODO Auto-generated method stub
-//		FXMLLoader loader = new FXMLLoader(
-//				getClass().getResource("../../reviewSend.fxml"));
-//		Pane p = loader.load();
-//		
-//		cs.userTalk(root,p);
+		// TODO Auto-generated method stub
+		FXMLLoader loader = new FXMLLoader(
+				getClass().getResource("../../reviewSend.fxml"));
+		Pane h = loader.load();
+		
+		ComboBox<Double> cmbStar = (ComboBox<Double>) h.lookup("#cmbStar");
+		cmbStar.getItems().addAll(0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0);
+		
+		cs.userTalk(root,h);
 	}
 
 	@Override

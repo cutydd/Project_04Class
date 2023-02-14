@@ -69,7 +69,7 @@ public class Controller implements Initializable{
 	}
 
 	public void reviewProc() throws IOException {
-		getReview();
+//		getReview();
 		rs.reviewProc(root);
 	}
 

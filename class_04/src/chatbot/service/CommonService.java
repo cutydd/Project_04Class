@@ -3,6 +3,7 @@ package chatbot.service;
 import java.io.IOException;
 
 import javafx.scene.Parent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
 public interface CommonService {
@@ -19,5 +20,5 @@ public interface CommonService {
 	
 	void menu(Parent root) throws IOException;
 
-	void userTalk(Parent root, Pane p1) throws IOException;
+	void userTalk(Parent root, Pane h) throws IOException;
 }
