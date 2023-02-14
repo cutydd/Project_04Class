@@ -109,4 +109,22 @@ public class DataBaseServiceImpl implements DataBaseService{
 	}
 
 
+	@Override
+	public Double starSum() {
+		// TODO Auto-generated method stub
+		double r = 0;
+		try {
+			String sql = "select round(AVG(star),2) from review";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			r = rs.getDouble(1);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return r;
+	}
+
+
 }

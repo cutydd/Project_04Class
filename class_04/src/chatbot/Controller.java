@@ -54,8 +54,6 @@ public class Controller implements Initializable{
 
 	public void reviewProc() throws IOException {
 		root = rs.reviewProc(root);
-//		getReview();
-		
 	}
 
 	public void sendMsg() throws IOException {

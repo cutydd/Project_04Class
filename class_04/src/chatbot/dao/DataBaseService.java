@@ -13,4 +13,6 @@ public interface DataBaseService {
 	boolean review(Review re);
 
 	List<Review> reviewTable();
+	
+	Double starSum();
 }

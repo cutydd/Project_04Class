@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane prefHeight="328.0" prefWidth="300.0" style="-fx-background-color: ffffff; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatbot.Controller">
+<Pane prefHeight="328.0" prefWidth="300.0" style="-fx-background-color: ffffff; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatbot.Controller">
    <children>
-      <Label layoutX="14.0" layoutY="1.0" prefHeight="36.0" prefWidth="290.0" text="총 별점 - " />
-      <Label layoutX="72.0" layoutY="11.0" prefHeight="17.0" prefWidth="59.0" />
+      <Label layoutX="14.0" layoutY="1.0" prefHeight="36.0" prefWidth="290.0" text="총 별점 -  ★" />
+      <Label fx:id="starSum" layoutX="91.0" layoutY="11.0" prefHeight="17.0" prefWidth="165.0">
+         <padding>
+            <Insets left="20.0" />
+         </padding></Label>
       <TableView fx:id="reviewTable" layoutX="5.0" layoutY="36.0" prefHeight="278.0" prefWidth="290.0">
          <columns>
             <TableColumn fx:id="star" prefWidth="52.0" text="별점 " />

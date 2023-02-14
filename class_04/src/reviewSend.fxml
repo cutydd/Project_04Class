@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefWidth="320.0" style="-fx-background-color: fef01b; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatbot.Controller">
+<Pane prefWidth="320.0" style="-fx-background-color: fef01b; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatbot.Controller">
    <children>
       <HBox alignment="CENTER" layoutX="5.0" prefHeight="36.0" prefWidth="310.0" spacing="5.0">
          <children>

@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -36,8 +37,11 @@ public class ReviewServiceImpl implements ReviewService{
 		Pane p = loader.load();
 		
 		List<Review> l = ds.reviewTable();
-		
+		Label starLabel = (Label) p.lookup("#starSum");
 		TableView<Review> reviewList = (TableView<Review>) p.lookup("#reviewTable");
+		
+		String r = Double.toString(ds.starSum());
+		starLabel.setText(r);
 		
 		star = new TableColumn<Review, Double> ("별점");
 		comments = new TableColumn<Review, String> ("리뷰");
@@ -56,8 +60,6 @@ public class ReviewServiceImpl implements ReviewService{
 	@Override
 	public Parent reviewProc(Parent root) throws IOException {
 		// TODO Auto-generated method stub
-
-
 		Pane p = getReview(root);
 		cs.shopTalk(root, p);
 		reviewSend(root);
@@ -119,6 +121,7 @@ public class ReviewServiceImpl implements ReviewService{
 
 		if(txtFld.getText().isEmpty()) {
 			cs.errorMsg("리뷰", "리뷰 작성", "리뷰 내용 없음");
+			return;
 		} else {
 			r.setComments(txtFld.getText());
 		}
