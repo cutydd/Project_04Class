@@ -6,4 +6,6 @@ public interface ReserveService {
 
 	void reserve(Parent root) throws Exception;
 
+	void insertReserve(Parent root) throws Exception;
+
 }

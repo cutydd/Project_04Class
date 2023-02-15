@@ -43,7 +43,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="mem" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="mem" GridPane.columnIndex="1" GridPane.rowIndex="1" promptText="숫자만 입력해주세요." />
             <Label text="연락처" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="10.0" />
@@ -53,7 +53,7 @@
                </font>
             </Label>
             <TextField fx:id="phone" promptText="010-xxxx-xxxx" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
-            <Button fx:id="reserve" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="200.0" text="예약하기" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="reserve" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="200.0" text="예약 완료" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <padding>
                   <Insets bottom="5.0" top="5.0" />
                </padding>

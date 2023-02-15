@@ -24,7 +24,7 @@ public class DataBaseServiceImpl implements DataBaseService{
 		//데이터 연결을 위한 객체 처리
 		String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
 		String user = "system";
-		String pass = "oracle";
+		String pass = "0000";
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -124,6 +124,21 @@ public class DataBaseServiceImpl implements DataBaseService{
 			e.printStackTrace();
 		}
 		return r;
+	}
+	
+	@Override
+	public int reserveTeam() {
+		int team = 0;
+		try {
+			String sql = "select count(*) from reserve";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			team = rs.getInt(1);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return team;
 	}
 
 

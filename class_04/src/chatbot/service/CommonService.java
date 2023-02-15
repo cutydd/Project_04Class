@@ -3,7 +3,6 @@ package chatbot.service;
 import java.io.IOException;
 
 import javafx.scene.Parent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
 public interface CommonService {

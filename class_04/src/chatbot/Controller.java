@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import chatbot.dao.DataBaseService;
-import chatbot.dao.DataBaseServiceImpl;
 import chatbot.service.CommonService;
 import chatbot.service.CommonServiceImpl;
 import chatbot.service.ReserveService;
@@ -18,14 +16,10 @@ import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
 
 public class Controller implements Initializable{
-	// root 를 공용으로 써야 할것 같아요 
-	// 이유는 shopInfo.fxml 에서 controller 를 지정해서 다른 객체가 생성되서
-	// root 가 없어져요
 	private static Parent root;
 	private ReserveService rvs;
 	private ReviewService rs;
 	private CommonService cs;
-	private DataBaseService ds;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -33,16 +27,21 @@ public class Controller implements Initializable{
 		rvs = new ReserveServiceImpl();
 		rs = new ReviewServiceImpl();
 		cs = new CommonServiceImpl();
-		ds = new DataBaseServiceImpl();
 		
 	}
 
+	@SuppressWarnings("static-access")
 	public void setRoot(Parent root) {
 		this.root=root;
 	}
 
 	public void reserveProc() throws Exception {
 		rvs.reserve(root);
+	}
+	
+	public void setReserve() throws Exception {
+		cs.userTalk(root, "예약하기");
+		rvs.insertReserve(root);
 	}
 
 	public void reviewProc() throws IOException {

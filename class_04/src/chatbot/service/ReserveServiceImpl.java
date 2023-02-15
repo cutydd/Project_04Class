@@ -9,6 +9,7 @@ import chatbot.dao.DataBaseServiceImpl;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
@@ -25,15 +26,22 @@ public class ReserveServiceImpl implements ReserveService{
 	
 	@Override
 	public void reserve(Parent root) throws Exception {
-		cs.shopTalk(root, "+ + + 예약 + + + ");
-		// 현재 예약 팀 : n팀 
-		// 예약하기 버튼
+		int team = ds.reserveTeam();
+		String str = "현재 예약 팀: "+ team+"팀";
 		
-		// 이 아래는 버튼 누르면 실행
-		insertReserve(root);
+		FXMLLoader loader = new FXMLLoader(
+				getClass().getResource("../../reserveInfo.fxml"));
+		Pane p = loader.load();
 		
+		Label content = (Label) p.lookup("#content");
+		
+		content.setText(str);
+
+		cs.shopTalk(root,p);
+
 	}
 	
+	@Override
 	public void insertReserve(Parent root) throws Exception{
 		FXMLLoader loader = new FXMLLoader(
 				getClass().getResource("../../reserve.fxml"));

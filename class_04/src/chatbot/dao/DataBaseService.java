@@ -15,4 +15,6 @@ public interface DataBaseService {
 	List<Review> reviewTable();
 	
 	Double starSum();
+
+	int reserveTeam();
 }
