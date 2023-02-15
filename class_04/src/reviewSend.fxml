@@ -11,7 +11,7 @@
    <children>
       <HBox alignment="CENTER" layoutX="5.0" prefHeight="36.0" prefWidth="310.0" spacing="5.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#reviewWrite" prefHeight="26.0" prefWidth="70.0" text="보내기">
+            <Button fx:id="sendBtn" mnemonicParsing="false" onAction="#reviewWrite" prefHeight="26.0" prefWidth="70.0" text="보내기">
                <font>
                   <Font size="11.0" />
                </font></Button>

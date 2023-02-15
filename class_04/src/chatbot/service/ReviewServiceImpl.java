@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -113,10 +114,11 @@ public class ReviewServiceImpl implements ReviewService{
 		} else {
 			r.setComments(txtFld.getText());
 		}
-
+		Button btn = (Button) root.lookup("#sendBtn");
 		if(ds.review(r)) {
 			txtFld.clear();
 			cnt++;
+			btn.setDisable(true);
 			//콤보박스 초기화
 			//    	  cmbStar.setPromptText("별점");
 		}

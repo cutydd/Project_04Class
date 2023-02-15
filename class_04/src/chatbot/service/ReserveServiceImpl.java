@@ -16,7 +16,6 @@ import javafx.scene.layout.Pane;
 public class ReserveServiceImpl implements ReserveService{
 	DataBaseService ds;
 	CommonService cs;
-	int step = 1;
 	
 	public ReserveServiceImpl() {
 		ds = new DataBaseServiceImpl();
