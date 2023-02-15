@@ -101,28 +101,9 @@ public class ReviewServiceImpl implements ReviewService{
 			cs.errorMsg("별점", "별점 선택", "별점이 선택되지 않았습니다.");
 			cmbStar.requestFocus();
 			return;
-		} else if(cmbStar.getValue().equals(0.5)) {
-			r.setStar(0.5);
-		} else if(cmbStar.getValue().equals(1.0)) {
-			r.setStar(1.0);
-		} else if(cmbStar.getValue().equals(1.5)) {
-			r.setStar(1.5);
-		} else if(cmbStar.getValue().equals(2.0)) {
-			r.setStar(2.0);
-		} else if(cmbStar.getValue().equals(2.5)) {
-			r.setStar(2.5);
-		} else if(cmbStar.getValue().equals(3.0)) {
-			r.setStar(3.0);
-		} else if(cmbStar.getValue().equals(3.5)) {
-			r.setStar(3.5);
-		} else if(cmbStar.getValue().equals(4.0)) {
-			r.setStar(4.0);
-		} else if(cmbStar.getValue().equals(4.5)) {
-			r.setStar(4.5);
-		} else if(cmbStar.getValue().equals(5.0)) {
-			r.setStar(5.0);
+		} else {
+			r.setStar(cmbStar.getValue());
 		}
-
 		TextField txtFld = (TextField) root.lookup("#reviewContent");
 
 		if(txtFld.getText().isEmpty()) {
